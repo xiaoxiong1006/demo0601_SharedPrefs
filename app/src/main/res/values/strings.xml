@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">demo0601_SharedPrefs</string>
+
+    <!-- Button label for blue button -->
+    <string name="blue_button">蓝</string>
+
+    <!-- Button label for green button -->
+    <string name="green_button">绿</string>
+
+    <!-- Button label for red button -->
+    <string name="red_button">红</string>
+
+    <!-- Button label for black button -->
+    <string name="black_button">黑</string>
+
+    <!-- Default string for count TextView -->
+    <string name="default_count">0</string>
+
+    <!-- Button label for Count button -->
+    <string name="count_button">计数</string>
+
+    <!-- Button label for Reset button -->
+    <string name="reset_button">重置</string>
+</resources>
