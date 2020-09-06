@@ -96,5 +96,19 @@ class MainActivity : AppCompatActivity() {
             R.color.default_background
         )
         count_textview!!.setBackgroundColor(mColor)
+
+        // Clear preferences
+        val preferencesEditor = mPreferences!!.edit()
+        preferencesEditor.clear()
+        preferencesEditor.apply()
     }
 }
+
+
+
+
+
+
+
+
+
