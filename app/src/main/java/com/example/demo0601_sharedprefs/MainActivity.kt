@@ -1,5 +1,6 @@
 package com.example.demo0601_sharedprefs
 
+import android.content.SharedPreferences
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,9 +23,35 @@ class MainActivity : AppCompatActivity() {
     // Key for current color
     private val COLOR_KEY = "color"
 
+    private var mPreferences: SharedPreferences? = null
+    private val sharedPrefFile = "com.example.demo0601_sharedprefs"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        mColor = ContextCompat.getColor(
+            this,
+            R.color.default_background
+        )
+
+        mPreferences = getSharedPreferences(sharedPrefFile, MODE_PRIVATE)
+
+        mCount = mPreferences?.getInt(COUNT_KEY, 0)!!
+        count_textview?.setText(String.format("%s", mCount))
+        mColor = mPreferences?.getInt(COLOR_KEY, mColor)!!
+        count_textview?.setBackgroundColor(mColor)
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+
+        val preferencesEditor = mPreferences!!.edit()
+        preferencesEditor.putInt(COUNT_KEY, mCount)
+        preferencesEditor.putInt(COLOR_KEY, mColor)
+
+        preferencesEditor.apply()
     }
 
     /**
